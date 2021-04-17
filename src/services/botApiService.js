@@ -1,30 +1,25 @@
 const axios = require('axios').default;
 
-let base_url = "http://192.168.178.46";
-let port = 3000;
-
-let url = base_url + ":" + port;
-
 export default class botApiService {
     
     getBotStatus(){
-        return axios.get(url + "/api/getStatus");
+        return axios.get(`${process.env.API_URL}/api/getStatus`);
     }
 
     getBotCommands(){
-        return axios.get(url + "/api/getCommands");
+        return axios.get(`${process.env.API_URL}/api/getCommands`);
     }
 
     getBotLogs(){
-        return axios.get(url + "/api/getLogs");
+        return axios.get(`${process.env.API_URL}/api/getLogs`);
     }
 
     stopBot(){
-        return axios.get(url + "/api/stopBot");
+        return axios.get`${process.env.API_URL}/api/stopBot`);
     }
 
     startBot(){
-        return axios.get(url + "/api/startBot");
+        return axios.get(`${process.env.API_URL}/api/startBot`);
     }
 
     exeCommand(msg){
@@ -35,6 +30,6 @@ export default class botApiService {
 
         console.log(content);
 
-        return axios.put(url + "/api/exeCommand", content);
+        return axios.put(`${process.env.API_URL}/api/exeCommand`, content);
     }
 }
