@@ -1,6 +1,6 @@
 const axios = require('axios').default;
 
-let base_url = "http://localhost";
+let base_url = "http://192.168.178.46";
 let port = 3000;
 
 let url = base_url + ":" + port;
