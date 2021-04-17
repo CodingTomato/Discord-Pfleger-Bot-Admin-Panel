@@ -5,7 +5,9 @@
 
     <v-main>
       <v-container fluid>
-        <router-view></router-view>
+        <basic-template>
+          <router-view></router-view>
+        </basic-template>
       </v-container>
     </v-main>
   </v-app>
@@ -14,6 +16,7 @@
 <script>
 import AppBar from './components/AppBar.vue';
 import NavBar from './components/NavBar.vue';
+import BasicTemplate from '@/components/BasicTemplate.vue';
 
 export default {
 
@@ -22,6 +25,7 @@ export default {
   components: {
     AppBar,
     NavBar,
+    BasicTemplate,
   },
 
   data () {

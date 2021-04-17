@@ -1,5 +1,5 @@
 <template>
-<div class="ma-12 pa-12">
+<div>
     <v-card>
       <v-navigation-drawer
         permanent
@@ -17,17 +17,23 @@
         <v-divider></v-divider>
 
         <v-list nav dense>
-          <v-list-item link="/">
+          <v-list-item v-on:click="redirectToHome">
             <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item>
-          <v-list-item link="commands">
+          <v-list-item v-on:click="redirectToCommands">
             <v-list-item-icon>
               <v-icon>mdi-message-bulleted</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Befehle</v-list-item-title>
+          </v-list-item>
+          <v-list-item v-on:click="redirectToLogs">
+            <v-list-item-icon>
+              <v-icon>mdi-math-log</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Logs</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
@@ -42,5 +48,16 @@
     data () {
       return { }
     },
+    methods:{
+      redirectToHome(){
+        this.$router.push('/');
+      },
+      redirectToCommands(){
+        this.$router.push('/commands');
+      },
+      redirectToLogs(){
+        this.$router.push('/logs');
+      }
+    }
   }
 </script>
