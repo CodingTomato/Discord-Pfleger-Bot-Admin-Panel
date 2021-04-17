@@ -15,7 +15,7 @@ export default class botApiService {
     }
 
     stopBot(){
-        return axios.get`${process.env.API_URL}/api/stopBot`);
+        return axios.get(`${process.env.API_URL}/api/stopBot`);
     }
 
     startBot(){
