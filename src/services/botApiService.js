@@ -3,23 +3,23 @@ const axios = require('axios').default;
 export default class botApiService {
     
     getBotStatus(){
-        return axios.get(`${process.env.API_URL}/api/getStatus`);
+        return axios.get(`https://dc-api.schusterhang.de/api/getStatus`);
     }
 
     getBotCommands(){
-        return axios.get(`${process.env.API_URL}/api/getCommands`);
+        return axios.get(`https://dc-api.schusterhang.de/api/getCommands`);
     }
 
     getBotLogs(){
-        return axios.get(`${process.env.API_URL}/api/getLogs`);
+        return axios.get(`https://dc-api.schusterhang.de/api/getLogs`);
     }
 
     stopBot(){
-        return axios.get(`${process.env.API_URL}/api/stopBot`);
+        return axios.get(`https://dc-api.schusterhang.de/api/stopBot`);
     }
 
     startBot(){
-        return axios.get(`${process.env.API_URL}/api/startBot`);
+        return axios.get(`https://dc-api.schusterhang.de/api/startBot`);
     }
 
     exeCommand(msg){
@@ -30,6 +30,6 @@ export default class botApiService {
 
         console.log(content);
 
-        return axios.put(`${process.env.API_URL}/api/exeCommand`, content);
+        return axios.put(`https://dc-api.schusterhang.de/api/exeCommand`, content);
     }
 }
