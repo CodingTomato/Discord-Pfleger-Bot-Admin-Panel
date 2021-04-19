@@ -1,9 +1,7 @@
 const axios = require('axios').default;
 
 export default class botApiService {
-    URL = "https://192.168.178.46";
-    PORT = 3000;
-    baseURL = this.URL + ":" + this.PORT;
+    baseURL = "https://dc-api.schusterhang.de";
 
     getBotStatus(){
         return axios.get(`${this.baseURL}/api/getStatus`);
