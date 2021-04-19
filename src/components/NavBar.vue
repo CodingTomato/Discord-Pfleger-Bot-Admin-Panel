@@ -35,6 +35,12 @@
             </v-list-item-icon>
             <v-list-item-title>Logs</v-list-item-title>
           </v-list-item>
+          <!-- <v-list-item v-on:click="redirectToSettings">
+            <v-list-item-icon>
+              <v-icon>mdi-cog</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Einstellungen</v-list-item-title>
+          </v-list-item> -->
         </v-list>
       </v-navigation-drawer>
     </v-card>
@@ -57,6 +63,9 @@
       },
       redirectToLogs(){
         this.$router.push('/logs');
+      },
+      redirectToSettings(){
+        this.$router.push('/settings');
       }
     }
   }

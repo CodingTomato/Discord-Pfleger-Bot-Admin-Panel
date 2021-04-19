@@ -1,5 +1,5 @@
 <template>
-    <v-container class="grey darken-4" style="margin-bottom: 1em; border-radius: 2px">
+    <v-container class="grey darken-4" style="margin-bottom: 0.5em; border-radius: 2px" fluid>
         <v-row no-gutters>
             <v-col cols="12" sm="11" md="1" class="pa-2 d-flex justify-center align-center">
                 

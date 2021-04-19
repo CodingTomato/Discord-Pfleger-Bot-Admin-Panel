@@ -1,5 +1,5 @@
 <template>
-<v-container style="padding: 0">
+  <v-container style="padding: 0" fluid>
     <v-row no-gutters>
       <v-col :cols="4" >
         <v-card class="pa-2 mr-2" elevation="2" v-if="this.status.silencedUserIDs">

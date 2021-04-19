@@ -1,25 +1,28 @@
 const axios = require('axios').default;
 
 export default class botApiService {
-    
+    URL = "https://localhost";
+    PORT = 3000;
+    baseURL = this.URL + ":" + this.PORT;
+
     getBotStatus(){
-        return axios.get(`https://dc-api.schusterhang.de/api/getStatus`);
+        return axios.get(`${this.baseURL}/api/getStatus`);
     }
 
     getBotCommands(){
-        return axios.get(`https://dc-api.schusterhang.de/api/getCommands`);
+        return axios.get(`${this.baseURL}/api/getCommands`);
     }
 
     getBotLogs(){
-        return axios.get(`https://dc-api.schusterhang.de/api/getLogs`);
+        return axios.get(`${this.baseURL}/api/getLogs`);
     }
 
     stopBot(){
-        return axios.get(`https://dc-api.schusterhang.de/api/stopBot`);
+        return axios.get(`${this.baseURL}/api/stopBot`);
     }
 
     startBot(){
-        return axios.get(`https://dc-api.schusterhang.de/api/startBot`);
+        return axios.get(`${this.baseURL}/api/startBot`);
     }
 
     exeCommand(msg){
@@ -28,8 +31,6 @@ export default class botApiService {
             "msg": newMSG,
         };
 
-        console.log(content);
-
-        return axios.put(`https://dc-api.schusterhang.de/api/exeCommand`, content);
+        return axios.put(`${this.baseURL}/api/exeCommand`, content);
     }
 }

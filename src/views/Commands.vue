@@ -1,5 +1,5 @@
 <template>
-  <v-container style="padding: 0" class="mx-auto" max-width="100%">
+  <v-container style="padding: 0" fluid>
     <v-row no-gutters>
       <v-col :cols="4">
         <v-row no-gutters>
@@ -66,7 +66,7 @@
               <b>Name:</b> {{ commandsArray[selectedItem].name }}<br>
               <span v-if="commandsArray[selectedItem].aliases.length"><b>Alias:</b> <span v-for="alias in commandsArray[selectedItem].aliases" :key="alias">{{alias}}, </span></span><br>
               <b>Beschreibung:</b> {{ commandsArray[selectedItem].description }}<br>
-              <b>Nutzung:</b> <v-chip outlined>#PREFIX</v-chip>  <v-chip color="primary" outlined>{{ commandsArray[selectedItem].name }}</v-chip> <span v-if="commandsArray[selectedItem].usage"><v-chip color="purple" class="mr-1" outlined v-for="pill in commandsArray[selectedItem].usage.split(' ')" :key="pill">{{ pill.substring(1).replace('>','') }}</v-chip> </span> 
+              <b>Nutzung:</b> <v-chip outlined>{{ this.prefix }}</v-chip>  <v-chip color="primary" outlined>{{ commandsArray[selectedItem].name }}</v-chip> <span v-if="commandsArray[selectedItem].usage"><v-chip color="purple" class="mr-1" outlined v-for="pill in commandsArray[selectedItem].usage.split(' ')" :key="pill">{{ pill.substring(1).replace('>','') }}</v-chip> </span> 
             </p>
           </v-card-text>
         </v-card>
@@ -75,7 +75,7 @@
           <v-card-text>
             <v-row no-gutters>
               <v-col class="mt-5" :cols="2">
-                <v-chip outlined class="mr-2">#PREFIX</v-chip><v-chip color="primary" outlined>{{ commandsArray[selectedItem].name }}</v-chip>
+                <v-chip outlined class="mr-2">{{ this.prefix }}</v-chip><v-chip color="primary" outlined>{{ commandsArray[selectedItem].name }}</v-chip>
               </v-col>
               <v-col class="mr-1" :cols="9">
                 <v-row no-gutters v-if="commandsArray[selectedItem].usage">
@@ -116,8 +116,7 @@ export default {
   components: { },
   data(){
     return {
-      prefix: "#Spotify",
-      status: {},
+      prefix: "",
       commandsArray: {},
       channelsArray: [],
       usersArray: [],
@@ -154,7 +153,6 @@ export default {
       var textArea = document.createElement("textarea");
       textArea.value = text;
       
-      // Avoid scrolling to bottom
       textArea.style.top = "0";
       textArea.style.left = "0";
       textArea.style.position = "fixed";
@@ -198,11 +196,10 @@ export default {
       });
     });
     this.getStatus().then(data => {
+      this.prefix = data.data.prefix;
       this.channelsArray = data.data.channels.cache;
       this.usersArray = data.data.users.cache;
-      this.channelsArray.sort(function(a, b) {
-        return a.parentID - b.parentID;
-      });
+      this.channelsArray.sort(function(a, b) { return a.parentID - b.parentID; });
     });
   },
 }
