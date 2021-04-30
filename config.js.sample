@@ -1,0 +1,4 @@
+module.exports = {
+    'admin ': 'password',
+    'bot': 'password',
+};
